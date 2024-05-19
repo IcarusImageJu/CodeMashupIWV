@@ -23,7 +23,9 @@ jobs:
           port: 22
           script: |
             cd CodeMashupIWV/
-            git pull origin main
+            git reset --hard HEAD
+            git checkout main
+            git pull origin main --force
             cd website-iwv
             yarn install
             pm2 stop payload || true
