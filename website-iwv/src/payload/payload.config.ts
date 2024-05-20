@@ -9,6 +9,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import dotenv from 'dotenv'
 import path from 'path'
 import { buildConfig } from 'payload/config'
+import importExportPlugin from 'payload-plugin-import-export'
 
 import Categories from './collections/Categories'
 import Comments from './collections/Comments'
@@ -23,8 +24,7 @@ import { seed } from './endpoints/seed'
 import { Footer } from './globals/Footer'
 import { Header } from './globals/Header'
 import { Settings } from './globals/Settings'
-import importExportPlugin from 'payload-plugin-import-export'
-import { User } from './payload-types'
+import type { User } from './payload-types'
 
 const generateTitle: GenerateTitle = () => {
   return 'My Website'
@@ -100,9 +100,9 @@ export default buildConfig({
     payloadCloud(),
     importExportPlugin({
       enabled: true,
-      excludeCollections: ["users"],
+      excludeCollections: ['users'],
       redirectAfterImport: true,
-      canImport: (user:User) => user.roles.includes("admin")
+      canImport: (user: User) => user.roles.includes('admin'),
     }),
   ],
 })

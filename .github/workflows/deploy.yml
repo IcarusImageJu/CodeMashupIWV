@@ -30,7 +30,6 @@ jobs:
             yarn install
             pm2 stop payload || true
             yarn build
-            yarn --production
             pm2 start payload
             
       - name: Verify deployment
