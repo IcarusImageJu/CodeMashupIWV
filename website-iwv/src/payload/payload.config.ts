@@ -23,6 +23,8 @@ import { seed } from './endpoints/seed'
 import { Footer } from './globals/Footer'
 import { Header } from './globals/Header'
 import { Settings } from './globals/Settings'
+import importExportPlugin from 'payload-plugin-import-export'
+import { User } from './payload-types'
 
 const generateTitle: GenerateTitle = () => {
   return 'My Website'
@@ -96,5 +98,11 @@ export default buildConfig({
       uploadsCollection: 'media',
     }),
     payloadCloud(),
+    importExportPlugin({
+      enabled: true,
+      excludeCollections: ["users"],
+      redirectAfterImport: true,
+      canImport: (user:User) => user.roles.includes("admin")
+    }),
   ],
 })
