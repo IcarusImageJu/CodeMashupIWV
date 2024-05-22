@@ -1,0 +1,59 @@
+
+
+.container {
+    width: 100%;
+    background: white;
+}
+
+.gutter {
+    min-height: calc(100vh - 10rem);
+    align-items: end;
+    display: flex;
+}
+
+.titling {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    color: black;
+    &__title {
+        font-size: 6rem;
+        
+        position: relative;
+        padding-left: 6rem;
+        font-family: "Fira Code", monospace;
+        font-optical-sizing: auto;
+        line-height: 0.8;
+        &::before {
+            left: 2rem;
+            top: 0;
+            content: "";
+            display: block;
+            height: 100%;
+            width: .25rem;
+            background: black;
+            position: absolute;
+            transform: skew(-15deg);
+        }
+    }
+    &__text {
+        font-size: 1rem;
+        width: 30ch;
+        line-height: 120%;
+        margin-left: 6.5rem;
+    }
+}
+
+
+:global([data-theme="dark"]) {
+    .container {
+        background: black;
+    }
+    .titling {
+        color: white;
+        &__title {
+            &::before {
+                background: white;
+            }
+        }
+    }
+}

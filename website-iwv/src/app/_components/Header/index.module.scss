@@ -2,6 +2,9 @@
 
 .header {
   padding: var(--base) 0;
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  background: white;
 }
 
 .wrap {
@@ -13,10 +16,12 @@
 
 .logo {
   width: 150px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-:global([data-theme="light"]) {
-  .logo {
-    filter: invert(1);
+:global([data-theme="dark"]) {
+  .header {
+      background: black;
   }
 }
