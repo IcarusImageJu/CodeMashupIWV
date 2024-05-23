@@ -3,11 +3,11 @@
 import { useEffect, useRef } from "react"
 import { useTheme } from "../../_providers/Theme"
 
-const CanvasCrossed = ({className}) => {
-    const canvasRef = useRef<HTMLCanvasElement>(null)
-  const {theme} = useTheme()
+const CanvasCrossed = ({ className }) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const { theme } = useTheme()
 
-  useEffect(() => {
+  const resizeCanvas = () => {
     const canvas = canvasRef.current
     const ctx = canvas?.getContext('2d')
 
@@ -17,9 +17,7 @@ const CanvasCrossed = ({className}) => {
       canvas.height = canvas.offsetHeight
 
       const { width, height } = canvas
-      console.log(width, height) // Cela devrait maintenant correspondre à la taille de l'écran
-
-      // Remplissage du fond en noir
+      
       ctx.fillStyle = 'transparent'
       ctx.fillRect(0, 0, width, height)
 
@@ -29,13 +27,23 @@ const CanvasCrossed = ({className}) => {
         const y = Math.floor(Math.random() * (height - 1))
         ctx.fillStyle = theme === 'dark' ? '#FFFFFF' : '#000000'
         ctx.fillRect(x, y, 11, 1)
-        ctx.fillRect(x+5, y-5, 1, 11)
+        ctx.fillRect(x + 5, y - 5, 1, 11)
       }
 
-      // Dessiner 1000000 pixels blancs
+      // Dessiner 10 pixels blancs
       for (let i = 0; i < 10; i++) {
         addRandomWhitePixel()
       }
+    }
+  }
+
+  useEffect(() => {
+    resizeCanvas()
+    window.addEventListener('resize', resizeCanvas)
+
+    // Cleanup pour éviter des écouteurs d'événements multiples
+    return () => {
+      window.removeEventListener('resize', resizeCanvas)
     }
   }, [theme])
 

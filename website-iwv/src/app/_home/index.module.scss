@@ -1,4 +1,4 @@
-
+@use '../_css/queries.scss' as *;
 
 .container {
     width: 100%;
@@ -35,6 +35,9 @@
         font-family: "Fira Code", monospace;
         font-optical-sizing: auto;
         line-height: 0.8;
+        @include small-break {
+            padding-left: 3rem;
+        }
         &::before {
             left: 2rem;
             top: 0;
@@ -45,13 +48,19 @@
             background: black;
             position: absolute;
             transform: skew(-15deg);
+            @include small-break {
+                left: 1rem;
+            }
         }
     }
     &__text {
         font-size: 1rem;
-        width: 30ch;
+        max-width: 30ch;
         line-height: 120%;
         margin-left: 6.5rem;
+        @include small-break {
+            margin-left: 3.5rem;
+        }
     }
 }
 
