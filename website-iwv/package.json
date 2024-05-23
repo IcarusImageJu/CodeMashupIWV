@@ -1,5 +1,5 @@
 {
-  "name": "WebsiteIWV",
+  "name": "websiteiwv",
   "description": "Website template for Payload",
   "version": "1.0.0",
   "main": "dist/server.js",
@@ -18,7 +18,8 @@
     "generate:graphQLSchema": "cross-env PAYLOAD_CONFIG_PATH=src/payload/payload.config.ts payload generate:graphQLSchema",
     "lint": "eslint src",
     "lint:fix": "eslint --fix --ext .ts,.tsx src",
-    "payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload/payload.config.ts payload"
+    "payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload/payload.config.ts payload",
+    "prepare": "husky || true"
   },
   "dependencies": {
     "@payloadcms/bundler-webpack": "^1.0.0",
@@ -63,6 +64,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "husky": "^9.0.11",
     "nodemon": "^2.0.6",
     "prettier": "^2.7.1",
     "slate": "0.91.4",
