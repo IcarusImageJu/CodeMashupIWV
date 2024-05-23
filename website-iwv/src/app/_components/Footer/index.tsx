@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-import { Footer } from '../../../payload/payload-types'
+import type { Footer } from '../../../payload/payload-types'
 import { fetchFooter, fetchGlobals } from '../../_api/fetchGlobals'
 import { ThemeSelector } from '../../_providers/Theme/ThemeSelector'
 import { Gutter } from '../Gutter'
@@ -36,7 +36,7 @@ export async function Footer() {
           })}
           <Link href="/admin">Admin</Link>
           <Link
-            href="https://github.com/payloadcms/payload/tree/main/templates/website"
+            href="https://github.com/IcarusImageJu/CodeMashupIWV"
             target="_blank"
             rel="noopener noreferrer"
           >
