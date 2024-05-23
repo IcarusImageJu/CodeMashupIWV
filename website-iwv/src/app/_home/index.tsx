@@ -1,13 +1,13 @@
 import React from 'react'
+
 import { Page } from '../../payload/payload-types'
+import CanvasCrossed from '../_components/CanvasCrossed'
 import { Gutter } from '../_components/Gutter'
 import RichText from '../_components/RichText'
+
 import classes from './index.module.scss'
-import CanvasCrossed from '../_components/CanvasCrossed'
 
 const Home = ({ hero }: { hero: Page['hero'] }) => {
-  
-
   return (
     <div className={classes.container}>
       <CanvasCrossed className={classes.canvas} />

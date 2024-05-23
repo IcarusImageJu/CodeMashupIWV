@@ -9,8 +9,8 @@ import { fetchDoc } from '../../_api/fetchDoc'
 import { fetchDocs } from '../../_api/fetchDocs'
 import { Blocks } from '../../_components/Blocks'
 import { Hero } from '../../_components/Hero'
-import { generateMeta } from '../../_utilities/generateMeta'
 import Home from '../../_home'
+import { generateMeta } from '../../_utilities/generateMeta'
 
 // Payload Cloud caches all files through Cloudflare, so we don't need Next.js to cache them as well
 // This means that we can turn off Next.js data caching and instead rely solely on the Cloudflare CDN
@@ -52,7 +52,7 @@ export default async function Page({ params: { slug = 'home' } }) {
   const { hero, layout } = page
 
   if (slug === 'home') {
-    return <Home hero={hero}/>
+    return <Home hero={hero} />
   }
 
   return (

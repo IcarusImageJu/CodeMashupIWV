@@ -40,4 +40,3 @@ export const metadata: Metadata = {
   },
   openGraph: mergeOpenGraph(),
 }
-

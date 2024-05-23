@@ -1,13 +1,14 @@
 'use client'
 
-import { useEffect, useRef } from "react"
-import { useTheme } from "../../_providers/Theme"
+import { useCallback, useEffect, useRef } from 'react'
+
+import { useTheme } from '../../_providers/Theme'
 
 const CanvasCrossed = ({ className }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const { theme } = useTheme()
 
-  const resizeCanvas = () => {
+  const resizeCanvas = useCallback(() => {
     const canvas = canvasRef.current
     const ctx = canvas?.getContext('2d')
 
@@ -17,7 +18,7 @@ const CanvasCrossed = ({ className }) => {
       canvas.height = canvas.offsetHeight
 
       const { width, height } = canvas
-      
+
       ctx.fillStyle = 'transparent'
       ctx.fillRect(0, 0, width, height)
 
@@ -35,7 +36,7 @@ const CanvasCrossed = ({ className }) => {
         addRandomWhitePixel()
       }
     }
-  }
+  }, [theme])
 
   useEffect(() => {
     resizeCanvas()
@@ -45,7 +46,7 @@ const CanvasCrossed = ({ className }) => {
     return () => {
       window.removeEventListener('resize', resizeCanvas)
     }
-  }, [theme])
+  }, [theme, resizeCanvas])
 
   return <canvas ref={canvasRef} className={className}></canvas>
 }
