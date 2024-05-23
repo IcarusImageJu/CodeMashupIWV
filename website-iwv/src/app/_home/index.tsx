@@ -1,19 +1,24 @@
+import React from 'react'
 import { Page } from '../../payload/payload-types'
 import { Gutter } from '../_components/Gutter'
 import RichText from '../_components/RichText'
 import classes from './index.module.scss'
+import CanvasCrossed from '../_components/CanvasCrossed'
 
-const Home = ({hero}: {hero: Page['hero']}) => {
+const Home = ({ hero }: { hero: Page['hero'] }) => {
+  
+
   return (
     <div className={classes.container}>
+      <CanvasCrossed className={classes.canvas} />
       <Gutter className={classes.gutter}>
         <div className={classes.titling}>
           <h1 className={classes.titling__title}>
-            IWV<br></br>Lab
+            IWV
+            <br />
+            Lab
           </h1>
-          <p className={classes.titling__text}>
-            <RichText className={classes.richText} content={hero.richText} />
-          </p>
+          <RichText className={classes.titling__text} content={hero.richText} />
         </div>
       </Gutter>
     </div>
