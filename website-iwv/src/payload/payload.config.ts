@@ -13,6 +13,7 @@ import importExportPlugin from 'payload-plugin-import-export'
 
 import Categories from './collections/Categories'
 import Comments from './collections/Comments'
+import { Contributors } from './collections/Contributors'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
@@ -66,7 +67,7 @@ export default buildConfig({
     url: process.env.DATABASE_URI,
   }),
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
-  collections: [Pages, Posts, Projects, Media, Categories, Users, Comments],
+  collections: [Contributors, Pages, Posts, Projects, Media, Categories, Users, Comments],
   globals: [Settings, Header, Footer],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
@@ -87,13 +88,13 @@ export default buildConfig({
   ],
   plugins: [
     redirects({
-      collections: ['pages', 'posts'],
+      collections: ['pages', 'posts', 'contributors'],
     }),
     nestedDocs({
       collections: ['categories'],
     }),
     seo({
-      collections: ['pages', 'posts', 'projects'],
+      collections: ['pages', 'posts', 'projects', 'contributors'],
       generateTitle,
       uploadsCollection: 'media',
     }),

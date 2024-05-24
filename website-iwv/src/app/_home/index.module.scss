@@ -3,7 +3,7 @@
 .container {
     width: 100%;
     min-height: calc(100vh - 10rem);
-    background: white;
+    background: --theme-bg;
     position: relative;
 }
 
@@ -27,7 +27,7 @@
 .titling {
     padding-top: 4rem;
     padding-bottom: 4rem;
-    color: black;
+    color: --theme-text;
     &__title {
         font-size: 6rem;
         position: relative;
@@ -45,7 +45,7 @@
             display: block;
             height: 100%;
             width: .25rem;
-            background: black;
+            background: --theme-text;
             position: absolute;
             transform: skew(-15deg);
             @include small-break {
@@ -60,21 +60,6 @@
         margin-left: 6.5rem;
         @include small-break {
             margin-left: 3.5rem;
-        }
-    }
-}
-
-
-:global([data-theme="dark"]) {
-    .container {
-        background: black;
-    }
-    .titling {
-        color: white;
-        &__title {
-            &::before {
-                background: white;
-            }
         }
     }
 }
