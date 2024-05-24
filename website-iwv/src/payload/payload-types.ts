@@ -32,6 +32,8 @@ export interface Config {
  */
 export interface Contributor {
   id: string;
+  title: string;
+  publishedAt?: string | null;
   name: string;
   email?: string | null;
   github?: string | null;
@@ -85,10 +87,15 @@ export interface Page {
           link: {
             type?: ('reference' | 'custom') | null;
             newTab?: boolean | null;
-            reference?: {
-              relationTo: 'pages';
-              value: string | Page;
-            } | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: string | Page;
+                } | null)
+              | ({
+                  relationTo: 'contributors';
+                  value: string | Contributor;
+                } | null);
             url?: string | null;
             label: string;
             appearance?: ('default' | 'primary' | 'secondary') | null;
@@ -109,10 +116,15 @@ export interface Page {
               link: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null;
+                reference?:
+                  | ({
+                      relationTo: 'pages';
+                      value: string | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'contributors';
+                      value: string | Contributor;
+                    } | null);
                 url?: string | null;
                 label: string;
                 appearance?: ('primary' | 'secondary') | null;
@@ -136,10 +148,15 @@ export interface Page {
               link?: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null;
+                reference?:
+                  | ({
+                      relationTo: 'pages';
+                      value: string | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'contributors';
+                      value: string | Contributor;
+                    } | null);
                 url?: string | null;
                 label: string;
                 appearance?: ('default' | 'primary' | 'secondary') | null;
@@ -252,10 +269,15 @@ export interface Post {
           link: {
             type?: ('reference' | 'custom') | null;
             newTab?: boolean | null;
-            reference?: {
-              relationTo: 'pages';
-              value: string | Page;
-            } | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: string | Page;
+                } | null)
+              | ({
+                  relationTo: 'contributors';
+                  value: string | Contributor;
+                } | null);
             url?: string | null;
             label: string;
             appearance?: ('default' | 'primary' | 'secondary') | null;
@@ -276,10 +298,15 @@ export interface Post {
               link: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null;
+                reference?:
+                  | ({
+                      relationTo: 'pages';
+                      value: string | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'contributors';
+                      value: string | Contributor;
+                    } | null);
                 url?: string | null;
                 label: string;
                 appearance?: ('primary' | 'secondary') | null;
@@ -303,10 +330,15 @@ export interface Post {
               link?: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null;
+                reference?:
+                  | ({
+                      relationTo: 'pages';
+                      value: string | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'contributors';
+                      value: string | Contributor;
+                    } | null);
                 url?: string | null;
                 label: string;
                 appearance?: ('default' | 'primary' | 'secondary') | null;
@@ -377,10 +409,15 @@ export interface Post {
                   link: {
                     type?: ('reference' | 'custom') | null;
                     newTab?: boolean | null;
-                    reference?: {
-                      relationTo: 'pages';
-                      value: string | Page;
-                    } | null;
+                    reference?:
+                      | ({
+                          relationTo: 'pages';
+                          value: string | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'contributors';
+                          value: string | Contributor;
+                        } | null);
                     url?: string | null;
                     label: string;
                     appearance?: ('primary' | 'secondary') | null;
@@ -404,10 +441,15 @@ export interface Post {
                   link?: {
                     type?: ('reference' | 'custom') | null;
                     newTab?: boolean | null;
-                    reference?: {
-                      relationTo: 'pages';
-                      value: string | Page;
-                    } | null;
+                    reference?:
+                      | ({
+                          relationTo: 'pages';
+                          value: string | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'contributors';
+                          value: string | Contributor;
+                        } | null);
                     url?: string | null;
                     label: string;
                     appearance?: ('default' | 'primary' | 'secondary') | null;
@@ -515,10 +557,15 @@ export interface Project {
           link: {
             type?: ('reference' | 'custom') | null;
             newTab?: boolean | null;
-            reference?: {
-              relationTo: 'pages';
-              value: string | Page;
-            } | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: string | Page;
+                } | null)
+              | ({
+                  relationTo: 'contributors';
+                  value: string | Contributor;
+                } | null);
             url?: string | null;
             label: string;
             appearance?: ('default' | 'primary' | 'secondary') | null;
@@ -539,10 +586,15 @@ export interface Project {
               link: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null;
+                reference?:
+                  | ({
+                      relationTo: 'pages';
+                      value: string | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'contributors';
+                      value: string | Contributor;
+                    } | null);
                 url?: string | null;
                 label: string;
                 appearance?: ('primary' | 'secondary') | null;
@@ -566,10 +618,15 @@ export interface Project {
               link?: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null;
+                reference?:
+                  | ({
+                      relationTo: 'pages';
+                      value: string | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'contributors';
+                      value: string | Contributor;
+                    } | null);
                 url?: string | null;
                 label: string;
                 appearance?: ('default' | 'primary' | 'secondary') | null;
@@ -738,10 +795,15 @@ export interface Header {
         link: {
           type?: ('reference' | 'custom') | null;
           newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: string | Page;
-          } | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: string | Page;
+              } | null)
+            | ({
+                relationTo: 'contributors';
+                value: string | Contributor;
+              } | null);
           url?: string | null;
           label: string;
         };
@@ -762,10 +824,15 @@ export interface Footer {
         link: {
           type?: ('reference' | 'custom') | null;
           newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: string | Page;
-          } | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: string | Page;
+              } | null)
+            | ({
+                relationTo: 'contributors';
+                value: string | Contributor;
+              } | null);
           url?: string | null;
           label: string;
         };

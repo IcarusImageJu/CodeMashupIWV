@@ -21,7 +21,7 @@ export const Contributors: CollectionConfig = {
   hooks: {
     beforeChange: [populatePublishedAt],
     afterChange: [revalidateContributor],
-    afterRead: [populateArchiveBlock],
+    // afterRead: [populateArchiveBlock],
   },
   versions: {
     drafts: true,
@@ -33,6 +33,18 @@ export const Contributors: CollectionConfig = {
     delete: admins,
   },
   fields: [
+    {
+      name: 'title',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'publishedAt',
+      type: 'date',
+      admin: {
+        position: 'sidebar',
+      },
+    },
     {
       name: 'name',
       type: 'text',
