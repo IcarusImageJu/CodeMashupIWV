@@ -9,7 +9,7 @@ import classes from './index.module.scss'
 
 const Home = ({ hero }: { hero: Page['hero'] }) => {
   return (
-    <div className={classes.container}>
+    <main className={classes.container}>
       <CanvasCrossed className={classes.canvas} />
       <Gutter className={classes.gutter}>
         <div className={classes.titling}>
@@ -21,7 +21,7 @@ const Home = ({ hero }: { hero: Page['hero'] }) => {
           <RichText className={classes.titling__text} content={hero.richText} />
         </div>
       </Gutter>
-    </div>
+    </main>
   )
 }
 
